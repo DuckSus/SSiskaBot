@@ -218,7 +218,7 @@ async def inline_breast_size(query: InlineQuery):
         description = rare_numbers[size]
 
     fact = random.choice(facts)  # Выбираем случайный факт
-    text = f"🍒**У меня {size} размер сисек** \n{description}\n\n💡СиськаФакт - {fact}"
+    text = f"🍒**У меня** {size} **размер сисек** \n{description}\n\n💡СиськаФакт - {fact}"
 
     # Кнопка для мгновенного повторного вызова
     markup = InlineKeyboardMarkup(
