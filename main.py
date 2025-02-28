@@ -135,7 +135,7 @@ async def inline_breast_size(query: InlineQuery):
     ]
     # Выбираем случайное начало фразы
  # Шанс выпадения альтернативного интро
-    if random.random() < 0.01 # 0.1% шанс (1 раз на 100)
+    if random.random() < 0.01: # 0.1% шанс (1 раз на 100)
         intro = random.choice(rare_intro_phrases).format(size=size)
     else:
         intro = random.choice(intro_phrases).format(size=size)
