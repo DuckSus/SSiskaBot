@@ -145,7 +145,7 @@ async def inline_breast_size(query: InlineQuery):
         ]
     )
 
-    result = InlineQueryResultArticle(
+    result_breast = InlineQueryResultArticle(
         id=str(random.randint(1000, 9999)),  # ID должен быть уникальным
         title="Узнать размер сисек",
         input_message_content=InputTextMessageContent(message_text=text),
