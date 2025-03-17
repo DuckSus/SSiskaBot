@@ -6,7 +6,7 @@ from aiogram import Bot, Dispatcher, Router, types
 from aiogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
 
 # Твой токен
-TOKEN = "7422518676:AAF-arNpJbW1M_OZycca_QJDzVq9eXHvjw8"
+TOKEN = "7774543442:AAGtOJN6VZdQ_KnJFCdgjyzlfx2X_QhNhgU"
 
 # Создаём бота и диспетчер
 bot = Bot(token=TOKEN)
