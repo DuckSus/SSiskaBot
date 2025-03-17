@@ -141,7 +141,7 @@ async def inline_breast_size(query: InlineQuery):
     # Кнопка для мгновенного повторного вызова
     markup = InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Померить сиси", switch_inline_query_current_chat="")]
+            [InlineKeyboardButton(text="🍒Померить сиси", switch_inline_query_current_chat="")]
         ]
     )
 
@@ -151,7 +151,22 @@ async def inline_breast_size(query: InlineQuery):
         input_message_content=InputTextMessageContent(message_text=text),
         reply_markup=markup
     )
+# Генерация размера писюнчика от 0 до 25 см
+    penis_size = random.randint(0, 25)
+    penis_text = f"🍆 Твой размер писюнчика: {penis_size} см!"
+    
+    result_penis = InlineQueryResultArticle(
+        id=str(random.randint(1000, 9999)),
+        title="Измерить свой писюнчик",
+        input_message_content=InputTextMessageContent(message_text=penis_text),
+        reply_markup=InlineKeyboardMarkup(
+            inline_keyboard=[
+                [InlineKeyboardButton(text="Померить писюнчик", switch_inline_query_current_chat="")]
+            ]
+        )
+    )
 
+    await query.answer([result_breast, result_penis], cache_time=1)
     await query.answer([result], cache_time=1)  # cache_time=1 чтобы не запоминал старые ответы
 
 # Подключаем роутер к диспетчеру
