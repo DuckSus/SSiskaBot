@@ -109,7 +109,6 @@ async def inline_breast_size(query: InlineQuery):
         size = random.choice(list(rare_numbers.keys()))
         description = rare_numbers[size]
 
-    fact = random.choice(facts)  # Выбираем случайный факт
    # Варианты начала фразы
     intro_phrases = [
         "🍒 У меня {size} размер сисек!",
