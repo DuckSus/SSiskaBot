@@ -138,7 +138,7 @@ async def inline_breast_size(query: InlineQuery):
     ]
     
  # Шанс выпадения альтернативного интро
-    if random.random() < 0.02: # 0.2% шан
+    if random.random() < 0.2: # 0.2% шан
         intro = random.choice(rare_intro_phrases).format(size=size)
     else:
         intro = random.choice(intro_phrases).format(size=size)
