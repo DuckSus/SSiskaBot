@@ -167,7 +167,6 @@ async def inline_breast_size(query: InlineQuery):
     )
 
     await query.answer([result_breast, result_penis], cache_time=1)
-    await query.answer([result], cache_time=1)  # cache_time=1 чтобы не запоминал старые ответы
 
 # Подключаем роутер к диспетчеру
 dp.include_router(router)
