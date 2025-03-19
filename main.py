@@ -1,6 +1,6 @@
 import logging
 import random
- import asyncio
+import asyncio
  from background import keep_alive
  from aiogram import Bot, Dispatcher, Router, types
  from aiogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
