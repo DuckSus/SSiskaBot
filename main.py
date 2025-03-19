@@ -186,20 +186,6 @@ secret_descriptions = {
     6969: "🔥 Священное число среди братанов!",
     0: "😱 Полный ноль! Где он?!"
 }
-
-# Функция для выбора случайного размера с учетом вероятностей
-def get_random_penis_size():
-    roll = random.randint(1, 100)
-    if roll <= 60:
-        return random.choice(penis_sizes["common"][0])
-    elif roll <= 80:
-        return random.choice(penis_sizes["uncommon"][0])
-    elif roll <= 90:
-        return random.choice(penis_sizes["rare"][0])
-    elif roll <= 96:
-        return random.choice(penis_sizes["epic"][0])
-    else:
-        return random.choice(penis_sizes["secret"][0])
     # Кнопка для мгновенного повторного вызова
     markup = InlineKeyboardMarkup(
         inline_keyboard=[
