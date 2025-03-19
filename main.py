@@ -230,8 +230,7 @@ def get_random_penis_size():
         )
     )
 
-
-    await query.answer([result_breast, result_penis], cache_time=1)
+await query.answer([result_breast, result_penis], cache_time=1)
 
 # Подключаем роутер к диспетчеру
 dp.include_router(router)
