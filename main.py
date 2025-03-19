@@ -167,7 +167,39 @@ async def inline_breast_size(query: InlineQuery):
     # Формируем финальный текст
     text = f"{intro}\n{description}"
 
+# Описание для размеров писюнчика с шансами
+penis_sizes = {
+    "common": (list(range(1, 26)), 60),
+    "uncommon": (list(range(25, 51)), 20),
+    "rare": (list(range(50, 101)), 10),
+    "epic": (list(range(100, 201)), 6),
+    "secret": ([201, -1, 6969, 0], 4)
+}
 
+# Описание для всех размеров
+size_descriptions = {size: f"📏 Твой писюнчик {size} см! Это достойно!" for size in range(1, 201)}
+
+# Описание для секретных чисел
+secret_descriptions = {
+    201: "🚀 Ты обладатель легендарного суперписюна!",
+    -1: "❌ Тебя просто нет...",
+    6969: "🔥 Священное число среди братанов!",
+    0: "😱 Полный ноль! Где он?!"
+}
+
+# Функция для выбора случайного размера с учетом вероятностей
+def get_random_penis_size():
+    roll = random.randint(1, 100)
+    if roll <= 60:
+        return random.choice(penis_sizes["common"][0])
+    elif roll <= 80:
+        return random.choice(penis_sizes["uncommon"][0])
+    elif roll <= 90:
+        return random.choice(penis_sizes["rare"][0])
+    elif roll <= 96:
+        return random.choice(penis_sizes["epic"][0])
+    else:
+        return random.choice(penis_sizes["secret"][0])
     # Кнопка для мгновенного повторного вызова
     markup = InlineKeyboardMarkup(
         inline_keyboard=[
@@ -182,17 +214,14 @@ async def inline_breast_size(query: InlineQuery):
         reply_markup=markup
     )
 # Генерация размера писюнчика от 0 до 25 см
-    penis_size = random.randint(0, 25)
-    penis_description = penis_responses.get(penis_size, "🤷‍♂️ Неизвестный результат, но явно впечатляет!")
-    penis_text = f"🍆 Твой размер писюнчика: {penis_size} см!\n{penis_description}"
-
-    markup_penis = InlineKeyboardMarkup(
-        inline_keyboard=[[InlineKeyboardButton(text="Померить писюнчик", switch_inline_query_current_chat="")]]
-    )
+    penis_size = get_random_penis_size()
+    penis_description = secret_descriptions.get(penis_size, size_descriptions.get(penis_size, "🤷 Неизвестный результат!"))
+    
+    penis_text = f"🍆 {penis_description}"
 
     result_penis = InlineQueryResultArticle(
         id=str(random.randint(1000, 9999)),
-        title="🍆Измерить свой писюнчик",
+        title="🍆 Измерить свой писюнчик",
         input_message_content=InputTextMessageContent(message_text=penis_text),
         reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
@@ -200,6 +229,7 @@ async def inline_breast_size(query: InlineQuery):
             ]
         )
     )
+
 
     await query.answer([result_breast, result_penis], cache_time=1)
 
